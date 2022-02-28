@@ -27,9 +27,8 @@ def _checkresp(msg,stat):
 def checkresp(resp,ip=''):
     if ip:
         r2=track()
-        if r2==resp:
-            if r2.query!=resp.query:
-                raise InvalidQuery('invalid query')
+        if r2 == resp and r2.query != resp.query:
+            raise InvalidQuery('invalid query')
     if 'message' not in resp:return
     _checkresp(resp['message'],resp['status'])
 def track(ip=''):
